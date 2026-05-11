@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Impoetant links App</title>
+        <link rel="stylesheet" href="impoetant_links.css">
+    </head>
+    <body>
+        <div id="container">
+            <div class="tab">
+                <button class="tablinks" id ="linkList_tab">Links List</button>
+                <button class="tablinks" id ="addLink_tab">Add Link</button>
+                <button class="tablinks" id ="addTabLink_tab">Add Tab Link</button>
+            </div>
+            
+            <!-- Tab content -->
+            <div id="linkList" class="tabcontent">
+                <h1>Links List</h1>
+                <button class="btn" id="deletAll">Delete All </button>
+                <ul id="ul_list"></ul>
+            </div>
+            
+            <div id="addLink" class="tabcontent">
+                <h1>Add Link</h1>
+                Label:<input class="link" type="text" id="link_input_label">
+                Link :
+                <input class="link" type="text" id="link_input">
+                <button class="btn" id="btn_add_link" >Add Link</button>
+            </div>
+            <div id="addTabLink" class="tabcontent">
+                <h1>Add Tab Link</h1>
+                Label:<input class="link" type="text" id="link_tab_label">
+                <button class="btn" id="btn_add_tab_link" >Add Tab link</button>
+              </div>
+        </div>
+        <script src="impoetant_links.js" ></script>
+    </body>
+</html>
