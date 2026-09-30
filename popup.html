@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Important Links</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <img src="icons/icon.svg" alt="" width="30" height="30">
+        <div>
+          <h1>Important Links</h1>
+          <p id="count" class="muted" aria-live="polite">&nbsp;</p>
+        </div>
+      </div>
+      <button id="btn-settings" class="icon-btn" type="button" aria-label="Settings" data-icon="settings"></button>
+    </header>
+
+    <div class="toolbar">
+      <label class="search">
+        <span class="sr-only">Search links</span>
+        <span data-icon="search" aria-hidden="true"></span>
+        <input id="search" type="search" placeholder="Search title, URL, tag…" autocomplete="off" spellcheck="false">
+        <kbd id="kbd" aria-hidden="true">Ctrl K</kbd>
+      </label>
+      <select id="sort" aria-label="Sort links">
+        <option value="recent">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="alpha">A–Z</option>
+        <option value="used">Most used</option>
+      </select>
+    </div>
+
+    <div id="filters" class="filters" role="group" aria-label="Filter links"></div>
+    <main id="list" class="list" tabindex="-1" aria-label="Saved links"></main>
+
+    <footer class="actions">
+      <button id="btn-save-tab" class="btn primary" type="button"><span data-icon="tab" aria-hidden="true"></span>Save current tab</button>
+      <button id="btn-add" class="btn" type="button"><span data-icon="plus" aria-hidden="true"></span>Add link</button>
+    </footer>
+  </div>
+
+  <div id="toasts" role="status" aria-live="polite"></div>
+
+  <dialog id="dlg-edit" aria-labelledby="edit-heading">
+    <form id="form-edit" novalidate>
+      <h2 id="edit-heading">Add link</h2>
+      <div class="field">
+        <label for="f-title">Title</label>
+        <input id="f-title" maxlength="200" autocomplete="off" aria-describedby="e-title">
+        <p id="e-title" class="error" hidden></p>
+      </div>
+      <div class="field">
+        <label for="f-url">URL</label>
+        <input id="f-url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="example.com/page" aria-describedby="e-url">
+        <p id="e-url" class="error" hidden></p>
+      </div>
+      <div class="field">
+        <label for="f-desc">Note <span class="muted">(optional)</span></label>
+        <textarea id="f-desc" rows="2" maxlength="500"></textarea>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="f-cat">Category <span class="muted">(optional)</span></label>
+          <input id="f-cat" list="cat-list" maxlength="40" autocomplete="off">
+          <datalist id="cat-list"></datalist>
+        </div>
+        <div class="field">
+          <label for="f-tags">Tags <span class="muted">(comma separated)</span></label>
+          <input id="f-tags" autocomplete="off" placeholder="docs, reading">
+        </div>
+      </div>
+      <label class="check"><input id="f-fav" type="checkbox"> Pin to top</label>
+      <div class="dlg-actions">
+        <button type="button" class="btn" id="edit-cancel">Cancel</button>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-confirm" aria-labelledby="confirm-heading" aria-describedby="confirm-body">
+    <h2 id="confirm-heading"></h2>
+    <p id="confirm-body"></p>
+    <div id="confirm-actions" class="dlg-actions"></div>
+  </dialog>
+
+  <dialog id="dlg-settings" aria-labelledby="settings-heading">
+    <div class="dlg-head">
+      <h2 id="settings-heading">Settings</h2>
+      <button type="button" class="icon-btn" id="settings-close" aria-label="Close settings" data-icon="close"></button>
+    </div>
+    <fieldset class="seg">
+      <legend>Theme</legend>
+      <label><input type="radio" name="theme" value="system"><span>System</span></label>
+      <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+      <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+    </fieldset>
+    <section>
+      <h3>Your data</h3>
+      <div class="btn-row">
+        <button type="button" class="btn" id="exp-json">Export JSON</button>
+        <button type="button" class="btn" id="exp-csv">Export CSV</button>
+        <button type="button" class="btn" id="imp">Import…</button>
+      </div>
+      <button type="button" class="btn danger" id="clear-all">Clear all data</button>
+    </section>
+    <section>
+      <h3>About</h3>
+      <p class="muted">Version <span id="version"></span></p>
+      <p class="muted">Privacy: your links are stored only in this browser (chrome.storage.local). Nothing is sent anywhere, and there is no tracking or analytics. Favicons are read from Chrome’s own local cache.</p>
+    </section>
+  </dialog>
+
+  <input id="file" type="file" accept=".json,.csv,application/json,text/csv" hidden>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
