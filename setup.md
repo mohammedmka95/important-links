@@ -2,24 +2,7 @@
 
 This guide is only for the **Google sign-in** sync method. It takes about 10 to 15 minutes and is done once.
 
-> **Don't want Google Cloud?** Use the **Synced folder** method instead (Settings → Sync → Method → Synced folder). It needs no Google Cloud project at all.
-
 Everything you create here is yours. Nothing is shared with anyone else. The extension never stores anything in the project files; you enter the values in the extension's Settings.
-
----
-
-## What you will have at the end
-
-| Item | Where you get it | Where you put it |
-|---|---|---|
-| Google Cloud project | Google Cloud console | (nothing to enter) |
-| Google Drive API enabled | Google Cloud console | (nothing to enter) |
-| OAuth consent screen with you as test user | Google Cloud console | (nothing to enter) |
-| **Client ID** | Google Cloud console → Credentials | Extension → Settings → Google Cloud client |
-| **Client secret** | Google Cloud console → Credentials | Extension → Settings → Google Cloud client |
-| **Redirect URI** | Extension → Settings → Google Cloud client | Google Cloud console → Credentials |
-
-The Google Cloud console changes its layout from time to time. If a menu name differs slightly, look for the same words in the left menu or use the search bar at the top.
 
 ---
 
